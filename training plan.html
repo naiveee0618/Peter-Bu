@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排球训练计划生成</title>
+    <style>
+        form {
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        textarea {
+            width: 300px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 15px;
+        }
+
+        #training-plan {
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>排球训练计划生成</h1>
+    <form id="myForm">
+        <h2>五项基本技术情况</h2>
+        <label for="serve">发球情况：</label>
+        <textarea id="serve" name="serve"></textarea>
+        <label for="block">拦网情况：</label>
+        <textarea id="block" name="block"></textarea>
+        <label for="spike">扣球情况：</label>
+        <textarea id="spike" name="spike"></textarea>
+        <label for="dig">垫球情况：</label>
+        <textarea id="dig" name="dig"></textarea>
+        <label for="set">传球情况：</label>
+        <textarea id="set" name="set"></textarea>
+
+        <h2>个人身体情况</h2>
+        <label for="height">身高：</label>
+        <input type="number" id="height" name="height">
+        <label for="weight">体重：</label>
+        <input type="number" id="weight" name="weight">
+        <label for="gender">性别：</label>
+        <input type="text" id="gender" name="gender">
+        <label for="physical">身体素质情况：</label>
+        <textarea id="physical" name="physical"></textarea>
+
+        <button type="button" onclick="generatePlan()">生成训练计划</button>
+    </form>
+    <div id="training-plan"></div>
+
+    <script>
+        function generatePlan() {
+            const serve = document.getElementById('serve').value;
+            const block = document.getElementById('block').value;
+            const spike = document.getElementById('spike').value;
+            const dig = document.getElementById('dig').value;
+            const set = document.getElementById('set').value;
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+            const gender = document.getElementById('gender').value;
+            const physical = document.getElementById('physical').value;
+
+            let plan = "以下是根据您的情况生成的排球训练计划：\n\n";
+
+            if (serve) {
+                plan += "发球方面：鉴于您提到的发球情况为'" + serve + "', 建议每天进行30分钟的发球专项练习，包括不同站位和力度的发球尝试。\n";
+            }
+            if (block) {
+                plan += "拦网方面：由于您描述的拦网情况是'" + block + "', 每周安排3次，每次20分钟的拦网模拟训练。\n";
+            }
+            if (spike) {
+                plan += "扣球方面：根据您说的扣球情况为'" + spike + "', 每天进行15分钟的扣球技巧训练，可借助辅助器材。\n";
+            }
+            if (dig) {
+                plan += "垫球方面：按照您提供的垫球情况'" + dig + "', 每周进行4次，每次25分钟的垫球稳定性训练。\n";
+            }
+            if (set) {
+                plan += "传球方面：鉴于您的传球情况'" + set + "', 每天安排20分钟的传球精准度练习。\n";
+            }
+
+            if (height) {
+                plan += "身高为" + height + "cm，在训练中可根据自身身高优势，合理调整
